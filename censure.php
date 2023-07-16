@@ -7,6 +7,11 @@ $censured_word = $_GET['censure'];
 $paragraph = $_GET['paragraph'];
 $paragraph_length = strlen(trim($paragraph));
 
+// CENSURED PARAGRAPH
+$censured_paragraph = str_ireplace($censured_word, '***', $paragraph);
+$censured_paragraph_length = strlen(trim($censured_paragraph));
+
+
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +29,15 @@ $paragraph_length = strlen(trim($paragraph));
         <h3>Original Paragraph</h3>
         <p> <?= $paragraph ?> </p>
         <p>The original paragraph was <?= $paragraph_length ?> characters long</p>
+    </div>
+
+    <hr>
+
+    <!-- CENSURED PARAGRAPH -->
+    <div class="censured-paragraph">
+        <h3>Censored Paragraph</h3>
+        <p> <?= $censured_paragraph ?> </p>
+        <p>The censored paragraph is <?= $censured_paragraph_length ?> characters long</p>
     </div>
 
 </body>
